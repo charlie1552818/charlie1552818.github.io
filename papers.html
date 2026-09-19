@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Charlie's research paper library and reading desk">
+  <meta name="theme-color" content="#070b14">
+  <title>Paper Desk — Charlie Research Library</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="papers.css">
+</head>
+<body>
+  <header class="paper-header">
+    <a class="paper-brand" href="index.html"><span>C</span><b>CHARLIE / PAPER DESK</b></a>
+    <div class="paper-header-actions">
+      <span id="library-updated">INDEX LOADING</span>
+      <a href="index.html">Portfolio ↗</a>
+    </div>
+  </header>
+
+  <main class="paper-shell">
+    <aside class="library-panel">
+      <div class="library-intro">
+        <span class="eyebrow">RESEARCH LIBRARY / LOCAL-FIRST</span>
+        <h1>Paper<br>Library.</h1>
+        <p>All papers in the local research workspace are indexed here. Third-party PDFs stay local; notes stay in your browser.</p>
+      </div>
+
+      <div class="library-stats">
+        <div><strong id="stat-total">—</strong><span>Indexed PDFs</span></div>
+        <div><strong id="stat-notes">—</strong><span>With notes</span></div>
+      </div>
+
+      <label class="search-box">
+        <span>⌕</span>
+        <input id="paper-search" type="search" placeholder="Search title, category, group…">
+      </label>
+
+      <div class="folder-connect-card">
+        <button id="connect-folder" class="folder-connect-button">Connect research folder</button>
+        <span id="connection-status">Not connected</span>
+      </div>
+
+      <div class="filter-block">
+        <div class="filter-label">CATEGORY</div>
+        <div id="category-filters" class="filter-list"></div>
+      </div>
+
+      <div class="filter-block">
+        <div class="filter-label">GROUP</div>
+        <select id="group-filter"><option value="">All research groups</option></select>
+      </div>
+
+      <div class="library-footer-note">
+        <span class="privacy-dot"></span>
+        <p>Folder/PDF access and note storage stay local to your browser. Nothing is uploaded by the reading desk.</p>
+      </div>
+    </aside>
+
+    <section class="paper-browser">
+      <div class="browser-topbar">
+        <div><span id="result-count">0</span> papers shown</div>
+        <div class="browser-controls">
+          <select id="sort-mode">
+            <option value="title">Title A–Z</option>
+            <option value="modified">Recently modified</option>
+            <option value="size">Largest files</option>
+          </select>
+        </div>
+      </div>
+      <div id="paper-list" class="paper-list" aria-live="polite"></div>
+    </section>
+
+    <section class="reading-desk">
+      <div class="desk-toolbar">
+        <div class="selected-meta">
+          <span id="selected-category">SELECT A PAPER</span>
+          <h2 id="selected-title">Reading desk</h2>
+          <p id="selected-subtitle">Choose a paper from the library to start.</p>
+        </div>
+        <button id="choose-pdf" class="desk-button primary" disabled>Open local PDF</button>
+        <input id="pdf-picker" type="file" accept="application/pdf" hidden>
+      </div>
+
+      <div class="desk-grid">
+        <div class="pdf-pane">
+          <div id="pdf-empty" class="pdf-empty">
+            <div class="pdf-symbol">PDF</div>
+            <h3>Open the corresponding local file</h3>
+            <p>The paper index is public metadata only. Select the PDF from your computer to read it here without uploading it anywhere.</p>
+            <button id="choose-pdf-empty" class="desk-button" disabled>Choose local PDF</button>
+          </div>
+          <iframe id="pdf-frame" title="Local PDF reader" hidden></iframe>
+        </div>
+
+        <aside class="notes-pane">
+          <div class="notes-head">
+            <div>
+              <span class="eyebrow">READING NOTES</span>
+              <h3>Research memo</h3>
+            </div>
+            <span id="save-state">LOCAL</span>
+          </div>
+
+          <div class="note-fields">
+            <label>
+              <span>STATUS</span>
+              <select id="reading-status">
+                <option value="unread">Unread</option>
+                <option value="reading">Reading</option>
+                <option value="read">Read</option>
+                <option value="key">Key paper</option>
+              </select>
+            </label>
+            <label>
+              <span>TAGS</span>
+              <input id="note-tags" placeholder="CBF, GP, proof, experiment">
+            </label>
+          </div>
+
+          <label class="note-area">
+            <span>NOTES</span>
+            <textarea id="paper-notes" placeholder="Write what matters: problem, assumptions, method, proof idea, experiment, limitations, what you can reuse…" disabled></textarea>
+          </label>
+
+          <div class="note-prompts">
+            <button data-prompt="Problem / gap:\n">+ Problem</button>
+            <button data-prompt="Method / core idea:\n">+ Method</button>
+            <button data-prompt="Proof / guarantee:\n">+ Proof</button>
+            <button data-prompt="Experiments / evidence:\n">+ Evidence</button>
+            <button data-prompt="Limitations / questions:\n">+ Limits</button>
+            <button data-prompt="How I can reuse this:\n">+ Reuse</button>
+          </div>
+
+          <div class="notes-actions">
+            <button id="export-note" class="desk-button" disabled>Export Markdown</button>
+            <button id="clear-note" class="desk-button danger" disabled>Clear note</button>
+          </div>
+
+          <div class="note-storage">
+            <b>LOCAL STORAGE</b>
+            <p>Notes are keyed by a stable paper ID. Rebuilding the public index will not erase them as long as the indexed relative file remains the same.</p>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <script src="papers-data.js"></script>
+  <script src="paper-folder.js"></script>
+  <script src="papers.js"></script>
+</body>
+</html>

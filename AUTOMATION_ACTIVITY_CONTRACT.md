@@ -41,13 +41,18 @@ Rules:
 5. Deduplicate by `id`. Reuse the same `id` when an existing activity is updated rather than creating a near-duplicate.
 6. Keep titles concise and summaries readable on a portfolio card.
 7. `href` is optional and must point only to a public, safe destination. Omit it when no suitable public evidence exists.
-8. Routine automation commits should contain only `activity-data.js` unless a deliberate schema/UI migration is being performed.
-9. Before pushing, inspect `git diff -- activity-data.js` and verify no unrelated file is staged.
-10. Push to `main`; GitHub Pages will publish the updated static site from the configured source branch.
+8. A routine **activity-feed-only** update should contain only `activity-data.js` unless a deliberate schema/UI migration is being performed.
+9. The scheduled workflow also treats the paper library as a first-class update target. Paper-index updates are governed by `PAPER_LIBRARY_CONTRACT.md` and may additionally stage `papers-data.js`.
+10. Before pushing, inspect the staged diff and verify no unrelated file, private note, absolute local path, or third-party PDF binary is included.
+11. Push to `main`; GitHub Pages will publish the updated static site from the configured source branch.
 
 ## Current cadence
 
 The scheduler currently runs the broader intelligence/update workflow every 12 hours, around **09:00 and 21:00 Asia/Shanghai**. Scheduling is owned by the automation system, not by this repository.
+
+## Paper library priority
+
+The same 09:00 / 21:00 workflow should scan the configured local research-paper source and rebuild the categorized metadata index when files change. See `PAPER_LIBRARY_CONTRACT.md` for the stable updater contract. A material library update may also produce one concise Recent Activity item linking to `papers.html`.
 
 ## Local intelligence archive
 

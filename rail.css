@@ -5,6 +5,7 @@ body{font-family:var(--font-sans);font-feature-settings:"kern" 1,"liga" 1,"ss01"
 .section-head h2,.closing h2{font-weight:560;letter-spacing:-.04em}
 .research-card h3,.project-copy h3,.evidence-copy h3{font-weight:560;letter-spacing:-.018em}
 .kicker,.section-index,.project-meta,.tag,.brand-mark,.hero-stats strong,.node text,.core-label,.core-sub,.floating-chip small,.floating-chip b,.chip-icon,.marquee span,.card-top,.card-foot span,.project-tags span,.zoom-cue,.evidence-kicker,.lane-title,.lane-items span{font-family:var(--font-mono)}
+.nav-papers{padding:9px 12px;border:1px solid rgba(114,242,209,.2);border-radius:999px;background:linear-gradient(110deg,rgba(114,242,209,.07),rgba(106,168,255,.035));color:#aee7da!important}
 .research-rail{display:none}
 @media(min-width:1281px){
   body{padding-right:248px}
@@ -35,6 +36,9 @@ body{font-family:var(--font-sans);font-feature-settings:"kern" 1,"liga" 1,"ss01"
   .rail-meta b{color:#899bb1;font-size:9px;font-weight:500;text-align:right}
   .rail-actions{display:grid;grid-template-columns:1fr 1fr;gap:7px}
   .rail-actions a{padding:8px 7px;border:1px solid var(--line);border-radius:8px;color:#9bb0c8;text-decoration:none;text-align:center;font:500 9px var(--font-mono);background:rgba(255,255,255,.014)}
+  .rail-actions .rail-paper{grid-column:1/-1;border-color:rgba(114,242,209,.18);background:linear-gradient(90deg,rgba(114,242,209,.055),rgba(106,168,255,.025));color:#b7e7dc}
   .rail-actions a:hover{border-color:rgba(114,242,209,.25);color:#dce9f6}
 }
+@media(max-width:980px){.nav-links a:not(.nav-papers):not(.nav-cta){display:none}.nav-links{gap:9px}}
+@media(max-width:760px){.nav-links .nav-papers{display:inline-flex!important}}
 @media(max-width:1280px){.research-rail{display:none}}

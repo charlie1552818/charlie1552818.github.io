@@ -5,6 +5,15 @@
 */
 window.RECENT_ACTIVITY = [
   {
+    id: "2026-09-20-paper-reading-desk",
+    date: "2026-09-20",
+    category: "RESEARCH LIBRARY",
+    title: "1,092-paper research library and reading desk",
+    summary: "Indexed the full local research PDF collection into categorized public metadata and added a local-first PDF reader with browser-persistent notes, tags, reading status, and Markdown export.",
+    href: "https://charlie1552818.github.io/papers.html",
+    status: "DEPLOYED"
+  },
+  {
     id: "2026-09-20-evidence-case-studies",
     date: "2026-09-20",
     category: "PORTFOLIO",
