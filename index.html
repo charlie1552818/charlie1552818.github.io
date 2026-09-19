@@ -8,9 +8,10 @@
   <title>Charlie — Control · Robotics · Autonomous Systems</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="activity.css">
+  <link rel="stylesheet" href="rail.css">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
 </head>
 <body>
@@ -29,8 +30,38 @@
     </nav>
   </header>
 
+  <aside class="research-rail" aria-label="Portfolio directory">
+    <div class="rail-head">
+      <span class="rail-kicker">INDEX / 2026</span>
+      <strong>Research Portfolio</strong>
+      <span class="rail-live"><i></i> live build</span>
+    </div>
+    <nav class="rail-nav" aria-label="Page sections">
+      <a href="#overview" data-rail-target="overview"><span>00</span><b>Overview</b></a>
+      <a href="#research" data-rail-target="research"><span>01</span><b>Research</b></a>
+      <a href="#work" data-rail-target="work"><span>02</span><b>Selected work</b></a>
+      <a href="#evidence" data-rail-target="evidence"><span>03</span><b>Evidence</b></a>
+      <a href="#activity" data-rail-target="activity"><span>04</span><b>Recent activity</b></a>
+      <a href="#systems" data-rail-target="systems"><span>05</span><b>Systems</b></a>
+      <a href="#continue" data-rail-target="continue"><span>06</span><b>Continue</b></a>
+    </nav>
+    <div class="rail-progress-block">
+      <div class="rail-progress-label"><span>READING POSITION</span><em id="rail-percent">00%</em></div>
+      <div class="rail-track"><i id="rail-progress"></i></div>
+    </div>
+    <div class="rail-meta">
+      <div><span>FOCUS</span><b>Control · Robotics</b></div>
+      <div><span>STATUS</span><b>Research / Build</b></div>
+    </div>
+    <div class="rail-actions">
+      <a href="https://github.com/charlie1552818" target="_blank" rel="noreferrer">GitHub ↗</a>
+      <a href="#activity">Build log ↓</a>
+    </div>
+  </aside>
+
+
   <main id="top">
-    <section class="hero shell">
+    <section id="overview" class="hero shell">
       <div class="hero-copy reveal">
         <div class="kicker"><span class="status-dot"></span> AUTONOMOUS SYSTEMS · CONTROL · ROBOTICS</div>
         <h1>Designing systems<br>that <em>sense</em>, <em>reason</em><br>and stay <span class="gradient-text">safe.</span></h1>
@@ -153,7 +184,7 @@
       </div>
     </section>
 
-    <section class="closing shell reveal"><div class="closing-orb"><span></span><span></span><span></span></div><p class="section-index">06 / CONTINUE</p><h2>Build the model.<br>Stress the assumptions.<br><span>Make it work.</span></h2><div class="closing-links"><a href="https://github.com/charlie1552818" target="_blank" rel="noreferrer">GitHub ↗</a><a href="https://github.com/charlie1552818?tab=repositories" target="_blank" rel="noreferrer">Repositories ↗</a></div></section>
+    <section id="continue" class="closing shell reveal"><div class="closing-orb"><span></span><span></span><span></span></div><p class="section-index">06 / CONTINUE</p><h2>Build the model.<br>Stress the assumptions.<br><span>Make it work.</span></h2><div class="closing-links"><a href="https://github.com/charlie1552818" target="_blank" rel="noreferrer">GitHub ↗</a><a href="https://github.com/charlie1552818?tab=repositories" target="_blank" rel="noreferrer">Repositories ↗</a></div></section>
   </main>
 
   <dialog id="lightbox" class="lightbox">
@@ -163,6 +194,7 @@
   </dialog>
 
   <footer class="shell footer"><span>© 2026 Charlie</span><span>Automation · Control · Robotics · Autonomous Systems</span><a href="#top">Back to top ↑</a></footer>
+  <script src="rail.js"></script>
   <script src="activity-data.js"></script>
   <script src="script.js"></script>
 </body></html>
