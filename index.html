@@ -1,2 +1,136 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Charlie — Automation, Control, Robotics and Autonomous Systems"><title>Charlie | Control · Robotics · Autonomous Systems</title><link rel="stylesheet" href="style.css"></head><body><header><nav><a class="brand" href="#top">CHARLIE<span>.</span></a><div><a href="#research">Research</a><a href="#projects">Projects</a><a href="#stack">Stack</a><a href="https://github.com/charlie1552818" target="_blank">GitHub ↗</a></div></nav></header><main id="top"><section class="hero"><p class="eyebrow">AUTOMATION · CONTROL · ROBOTICS</p><h1>Engineering autonomy<br><span>from dynamics to intelligence.</span></h1><p class="lead">Automation undergraduate at Guangdong University of Technology, focused on safety-critical control, learning-enabled nonlinear systems, UAVs, marine autonomy and robotic systems.</p><div class="actions"><a class="btn primary" href="#projects">Explore work</a><a class="btn" href="https://github.com/charlie1552818" target="_blank">View GitHub</a></div><div class="meta"><div><b>Focus</b><span>Control & Autonomous Systems</span></div><div><b>Approach</b><span>Theory → Simulation → Engineering</span></div><div><b>Tools</b><span>Python · MATLAB · ROS · PX4</span></div></div></section><section id="research"><div class="heading"><small>01 / RESEARCH</small><h2>Research directions</h2></div><div class="grid"><article><small>01</small><h3>Safety-Critical Control</h3><p>Control Barrier Functions, robust constraints, multi-agent safety and optimization-based control.</p></article><article><small>02</small><h3>Learning-Based Control</h3><p>Gaussian-process disturbance learning, broad learning systems, adaptive and output-feedback control.</p></article><article><small>03</small><h3>UAV Autonomy</h3><p>Formation control, system identification, PX4/ROS workflows and HIL validation.</p></article><article><small>04</small><h3>Marine Robotics</h3><p>AUV docking, state estimation, robust/adaptive control and mechanism–control co-design.</p></article></div></section><section id="projects"><div class="heading"><small>02 / SELECTED REPOSITORIES</small><h2>Code, models and experiments</h2></div><div class="projects"><a href="https://github.com/charlie1552818/cumcm2026-b-radio-interference-localization" target="_blank"><div><small>MODELING</small><h3>CUMCM 2026 — Radio Interference Localization</h3><p>Geometric localization, coverage guarantees and rolling-horizon optimization.</p></div><b>↗</b></a><a href="https://github.com/charlie1552818/safe-control-gym" target="_blank"><div><small>CONTROL</small><h3>Safe Control Gym</h3><p>Learning-based and safety-critical control environments for dynamical systems and quadrotors.</p></div><b>↗</b></a><a href="https://github.com/charlie1552818/cbfkit" target="_blank"><div><small>CBF</small><h3>CBFKit</h3><p>Safe robotics control toolbox with barrier-function safety filters and planning components.</p></div><b>↗</b></a><a href="https://github.com/charlie1552818/Broad-Learning-System" target="_blank"><div><small>LEARNING</small><h3>Broad Learning System</h3><p>Reference implementation for broad-learning architectures and control-oriented extensions.</p></div><b>↗</b></a></div></section><section id="stack"><div class="heading"><small>03 / TOOLCHAIN</small><h2>Engineering stack</h2></div><div class="chips"><span>Python</span><span>MATLAB / Simulink</span><span>ROS / ROS 2</span><span>PX4</span><span>PyTorch</span><span>CasADi</span><span>Git</span><span>LaTeX</span></div></section></main><footer><span>© 2026 Charlie</span><span>Automation · Control · Robotics · Autonomous Systems</span></footer></body></html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Charlie — Control, Robotics and Autonomous Systems">
+  <meta name="theme-color" content="#070b14">
+  <title>Charlie — Control · Robotics · Autonomous Systems</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <canvas id="field" aria-hidden="true"></canvas>
+  <div class="noise" aria-hidden="true"></div>
+  <div class="cursor-glow" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <nav class="shell nav">
+      <a class="brand" href="#top" aria-label="Home"><span class="brand-mark">C</span><span class="brand-word">CHARLIE</span></a>
+      <div class="nav-links">
+        <a href="#research">Research</a><a href="#work">Work</a><a href="#systems">Systems</a>
+        <a class="nav-cta" href="https://github.com/charlie1552818" target="_blank" rel="noreferrer">GitHub <span>↗</span></a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero shell">
+      <div class="hero-copy reveal">
+        <div class="kicker"><span class="status-dot"></span> AUTONOMOUS SYSTEMS · CONTROL · ROBOTICS</div>
+        <h1>Designing systems<br>that <em>sense</em>, <em>reason</em><br>and stay <span class="gradient-text">safe.</span></h1>
+        <p class="lead">Automation undergraduate at Guangdong University of Technology. I work across safety-critical control, UAV autonomy, marine robotics and learning-enabled nonlinear systems.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#work"><span>Explore selected work</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></a>
+          <a class="button button-ghost" href="https://github.com/charlie1552818" target="_blank" rel="noreferrer">GitHub profile</a>
+        </div>
+        <div class="hero-stats">
+          <div><strong>04</strong><span>Research tracks</span></div>
+          <div><strong>13+</strong><span>Technical repositories</span></div>
+          <div><strong>∞</strong><span>Iterations ahead</span></div>
+        </div>
+      </div>
+
+      <div class="hero-visual reveal" data-delay="120">
+        <div class="visual-halo halo-a"></div><div class="visual-halo halo-b"></div>
+        <div class="control-orbit">
+          <svg class="system-map" viewBox="0 0 620 620" role="img" aria-label="Closed-loop autonomous systems diagram">
+            <defs>
+              <linearGradient id="gA" x1="0" x2="1"><stop offset="0%" stop-color="#78f7d2"/><stop offset="50%" stop-color="#64b5ff"/><stop offset="100%" stop-color="#a987ff"/></linearGradient>
+              <radialGradient id="nodeGlow"><stop offset="0%" stop-color="#d8fff5" stop-opacity=".95"/><stop offset="100%" stop-color="#73e7d0" stop-opacity=".08"/></radialGradient>
+              <filter id="softGlow"><feGaussianBlur stdDeviation="5"/></filter>
+              <marker id="arrow" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#80ead8"/></marker>
+            </defs>
+            <circle cx="310" cy="310" r="244" class="orbit orbit-outer"/><circle cx="310" cy="310" r="176" class="orbit orbit-mid"/><circle cx="310" cy="310" r="103" class="orbit orbit-inner"/>
+            <path d="M108 323 C135 164 260 94 398 121 C493 140 551 215 543 310" class="flow flow-a" marker-end="url(#arrow)"/>
+            <path d="M509 376 C452 505 296 548 174 470 C117 432 90 378 99 327" class="flow flow-b" marker-end="url(#arrow)"/>
+            <path d="M193 215 C252 156 359 153 428 212 C481 258 482 341 438 393" class="flow flow-c" marker-end="url(#arrow)"/>
+            <g class="node n1"><circle cx="118" cy="315" r="38" class="node-glow"/><circle cx="118" cy="315" r="11"/><text x="118" y="368">SENSE</text></g>
+            <g class="node n2"><circle cx="425" cy="135" r="38" class="node-glow"/><circle cx="425" cy="135" r="11"/><text x="425" y="188">MODEL</text></g>
+            <g class="node n3"><circle cx="525" cy="368" r="38" class="node-glow"/><circle cx="525" cy="368" r="11"/><text x="525" y="421">CONTROL</text></g>
+            <g class="node n4"><circle cx="261" cy="512" r="38" class="node-glow"/><circle cx="261" cy="512" r="11"/><text x="261" y="565">LEARN</text></g>
+            <g class="core"><circle cx="310" cy="310" r="77" class="core-ring"/><circle cx="310" cy="310" r="52" class="core-fill"/><path d="M280 326 L302 303 L321 320 L347 289" class="core-wave"/><text x="310" y="282" class="core-label">CLOSED LOOP</text><text x="310" y="357" class="core-sub">STABILITY · SAFETY</text></g>
+          </svg>
+          <div class="floating-chip chip-top"><span class="chip-icon">h(x)</span><div><small>SAFETY MARGIN</small><b>CBF ACTIVE</b></div></div>
+          <div class="floating-chip chip-right"><span class="pulse-dot"></span><div><small>ESTIMATION</small><b>ONLINE</b></div></div>
+          <div class="floating-chip chip-bottom"><span class="chip-icon">Σ</span><div><small>FEEDBACK</small><b>CLOSED LOOP</b></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="marquee-wrap" aria-label="Research topics"><div class="marquee">
+      <span>CONTROL BARRIER FUNCTIONS</span><i>✦</i><span>UAV AUTONOMY</span><i>✦</i><span>SYSTEM IDENTIFICATION</span><i>✦</i><span>MARINE ROBOTICS</span><i>✦</i><span>BROAD LEARNING</span><i>✦</i><span>NONLINEAR CONTROL</span><i>✦</i><span>CONTROL BARRIER FUNCTIONS</span><i>✦</i><span>UAV AUTONOMY</span>
+    </div></section>
+
+    <section id="research" class="section shell">
+      <div class="section-head reveal"><div><span class="section-index">01 / RESEARCH</span><h2>Research directions,<br><span>mapped as systems.</span></h2></div><p>I care about the complete loop: mathematical guarantees, estimators and learning modules, optimization-based decisions, and the physical system that finally has to work.</p></div>
+      <div class="research-grid">
+        <article class="research-card reveal">
+          <div class="card-top"><span>01</span><span class="tag">CONTROL</span></div>
+          <div class="mini-viz barrier-viz"><svg viewBox="0 0 320 160"><defs><linearGradient id="safeGrad" x1="0" x2="1"><stop stop-color="#64b5ff"/><stop offset="1" stop-color="#75f0ce"/></linearGradient></defs><path d="M25 122 C88 50 140 151 205 69 C237 30 270 44 300 24" class="safe-boundary"/><path d="M24 130 C90 57 145 157 211 76 C242 38 276 49 303 32 L303 150 L24 150Z" class="safe-area"/><circle cx="153" cy="111" r="8" class="agent-dot"/><path d="M153 111 L190 83" class="vector"/><path d="M153 111 L135 79" class="vector constraint"/></svg></div>
+          <h3>Safety-Critical Control</h3><p>CBFs, robust safety constraints, nonsmooth safe sets and optimization-based filters for systems that must remain safe while completing a task.</p><div class="card-foot"><span>CBF</span><span>QP</span><span>Robustness</span></div>
+        </article>
+        <article class="research-card reveal" data-delay="70">
+          <div class="card-top"><span>02</span><span class="tag">LEARNING</span></div>
+          <div class="mini-viz network-viz"><svg viewBox="0 0 320 160"><path d="M36 122 C91 25 122 139 164 71 C205 7 235 134 291 48" class="signal"/><path d="M36 135 C91 38 122 152 164 84 C205 20 235 147 291 61" class="signal signal-ghost"/><g class="feature-nodes"><circle cx="55" cy="105" r="6"/><circle cx="96" cy="69" r="6"/><circle cx="140" cy="111" r="6"/><circle cx="183" cy="56" r="6"/><circle cx="224" cy="108" r="6"/><circle cx="271" cy="62" r="6"/></g></svg></div>
+          <h3>Learning-Enabled Control</h3><p>Broad learning, Gaussian-process disturbance models and adaptive architectures that inject learning without giving up interpretability or control structure.</p><div class="card-foot"><span>BLS</span><span>GP</span><span>Adaptive</span></div>
+        </article>
+        <article class="research-card reveal" data-delay="140">
+          <div class="card-top"><span>03</span><span class="tag">AERIAL</span></div>
+          <div class="mini-viz formation-viz"><svg viewBox="0 0 320 160"><path d="M44 123 L117 59 L195 96 L274 35" class="formation-link"/><path d="M44 123 L195 96 M117 59 L274 35" class="formation-link faint"/><g class="drone"><circle cx="44" cy="123" r="9"/><circle cx="117" cy="59" r="9"/><circle cx="195" cy="96" r="9"/><circle cx="274" cy="35" r="9"/></g><circle cx="161" cy="85" r="67" class="range-ring"/></svg></div>
+          <h3>UAV Autonomy</h3><p>Formation, system identification, PX4/ROS autonomy and HIL-oriented engineering — from dynamic models to deployed control loops.</p><div class="card-foot"><span>PX4</span><span>ROS</span><span>SysID</span></div>
+        </article>
+        <article class="research-card reveal" data-delay="210">
+          <div class="card-top"><span>04</span><span class="tag">MARINE</span></div>
+          <div class="mini-viz docking-viz"><svg viewBox="0 0 320 160"><path d="M24 129 C89 112 122 86 157 70 C196 52 231 48 298 43" class="dock-path"/><path d="M219 26 L302 26 L302 92 L244 92" class="dock-frame"/><path d="M244 92 L268 71 L302 64" class="dock-guide"/><g class="auv" transform="translate(160 67) rotate(-17)"><path d="M-35 0 C-15 -18 25 -18 40 0 C24 18 -15 18 -35 0Z"/><path d="M38 0 l21 -14 v28z"/><circle cx="-16" cy="0" r="4"/></g></svg></div>
+          <h3>Marine Autonomous Systems</h3><p>AUV docking, capture geometry, estimation and robust/adaptive control, with an emphasis on physical convergence rather than abstract tracking alone.</p><div class="card-foot"><span>AUV</span><span>Docking</span><span>Co-design</span></div>
+        </article>
+      </div>
+    </section>
+
+    <section id="work" class="section section-work"><div class="shell">
+      <div class="section-head reveal"><div><span class="section-index">02 / SELECTED WORK</span><h2>Projects with<br><span>technical depth.</span></h2></div><p>Each project is treated as a system: problem formulation, model, method, experiment, failure modes and iteration — not just a repository link.</p></div>
+      <div class="project-stack">
+        <a class="project-card reveal project-cyan" href="https://github.com/charlie1552818/cumcm2026-b-radio-interference-localization" target="_blank" rel="noreferrer">
+          <div class="project-copy"><div class="project-meta"><span>01</span><span>MATHEMATICAL MODELING</span><span>2026</span></div><h3>Radio Interference<br>Localization & Clearance</h3><p>Set-membership localization, half-plane geometry, event-triggered switching and rolling-horizon search for fast multi-source localization.</p><div class="project-tags"><span>Geometry</span><span>Optimization</span><span>Active Search</span></div></div>
+          <div class="project-graphic radar-graphic"><div class="radar-grid"></div><div class="radar-sweep"></div><span class="target t1"></span><span class="target t2"></span><span class="target t3"></span><svg viewBox="0 0 360 260"><path d="M36 215 C94 184 126 129 177 119 C223 110 246 75 325 54" class="route"/><path d="M36 215 L91 194 L121 158 L177 119 L241 89 L325 54" class="route-dots"/></svg></div><span class="project-arrow">↗</span>
+        </a>
+        <a class="project-card reveal project-violet" data-delay="80" href="https://github.com/charlie1552818/safe-control-gym" target="_blank" rel="noreferrer">
+          <div class="project-copy"><div class="project-meta"><span>02</span><span>SAFE CONTROL</span><span>RESEARCH</span></div><h3>Safety-Critical<br>Autonomous Control</h3><p>Control-barrier-function thinking, model-based control and learning environments for quadrotors and nonlinear dynamical systems.</p><div class="project-tags"><span>CBF</span><span>MPC</span><span>Quadrotor</span></div></div>
+          <div class="project-graphic phase-graphic"><svg viewBox="0 0 360 260"><defs><linearGradient id="phaseG" x1="0" x2="1"><stop stop-color="#73ead4"/><stop offset="1" stop-color="#a786ff"/></linearGradient></defs><ellipse cx="180" cy="130" rx="124" ry="79" class="phase-ring"/><ellipse cx="180" cy="130" rx="90" ry="53" class="phase-ring two"/><path d="M45 195 C100 43 259 228 320 64" class="phase-path"/><circle cx="236" cy="107" r="9" class="phase-point"/><path d="M236 107 l36 -28" class="phase-vector"/></svg></div><span class="project-arrow">↗</span>
+        </a>
+        <a class="project-card reveal project-blue" data-delay="160" href="https://github.com/charlie1552818/Broad-Learning-System" target="_blank" rel="noreferrer">
+          <div class="project-copy"><div class="project-meta"><span>03</span><span>LEARNING SYSTEMS</span><span>CONTROL</span></div><h3>Broad Learning<br>for Nonlinear Systems</h3><p>Structured learning modules for uncertain nonlinear dynamics, with emphasis on efficient incremental representations and control integration.</p><div class="project-tags"><span>BLS</span><span>Nonlinear</span><span>Output Feedback</span></div></div>
+          <div class="project-graphic bls-graphic"><div class="layer l1"><i></i><i></i><i></i><i></i></div><div class="links one"></div><div class="layer l2"><i></i><i></i><i></i><i></i><i></i></div><div class="links two"></div><div class="layer l3"><i></i><i></i><i></i></div></div><span class="project-arrow">↗</span>
+        </a>
+      </div>
+    </div></section>
+
+    <section id="systems" class="section shell">
+      <div class="section-head reveal"><div><span class="section-index">03 / SYSTEMS</span><h2>Tools arranged by<br><span>what they enable.</span></h2></div><p>My stack is organized around the engineering loop rather than a list of logos: model, simulate, estimate, control, deploy and document.</p></div>
+      <div class="systems-board reveal">
+        <div class="system-lane"><div class="lane-title"><span>01</span> MODEL</div><div class="lane-items"><span>MATLAB</span><span>CasADi</span><span>Python</span></div></div><div class="connector"><i></i><b>→</b></div>
+        <div class="system-lane"><div class="lane-title"><span>02</span> SIMULATE</div><div class="lane-items"><span>Simulink</span><span>MuJoCo</span><span>Gazebo</span></div></div><div class="connector"><i></i><b>→</b></div>
+        <div class="system-lane"><div class="lane-title"><span>03</span> DEPLOY</div><div class="lane-items"><span>ROS</span><span>PX4</span><span>Jetson</span></div></div><div class="connector"><i></i><b>→</b></div>
+        <div class="system-lane"><div class="lane-title"><span>04</span> COMMUNICATE</div><div class="lane-items"><span>Git</span><span>LaTeX</span><span>Plots</span></div></div>
+      </div>
+    </section>
+
+    <section class="closing shell reveal"><div class="closing-orb"><span></span><span></span><span></span></div><p class="section-index">04 / CONTINUE</p><h2>Build the model.<br>Stress the assumptions.<br><span>Make it work.</span></h2><div class="closing-links"><a href="https://github.com/charlie1552818" target="_blank" rel="noreferrer">GitHub ↗</a><a href="https://github.com/charlie1552818?tab=repositories" target="_blank" rel="noreferrer">Repositories ↗</a></div></section>
+  </main>
+
+  <footer class="shell footer"><span>© 2026 Charlie</span><span>Automation · Control · Robotics · Autonomous Systems</span><a href="#top">Back to top ↑</a></footer>
+  <script src="script.js"></script>
+</body></html>
