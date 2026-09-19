@@ -31,11 +31,15 @@
     </nav>
   </header>
 
-  <aside class="research-rail" aria-label="Portfolio directory">
+  <button class="edge-tab edge-tab-left" type="button" data-drawer-toggle="site-toc" aria-controls="site-toc" aria-expanded="false">目录</button>
+  <button class="edge-tab edge-tab-right" type="button" data-drawer-toggle="research-rail" aria-controls="research-rail" aria-expanded="false">研究</button>
+  <div class="side-backdrop" data-drawer-close aria-hidden="true"></div>
+
+  <aside id="site-toc" class="side-panel site-toc" aria-label="Page directory">
     <div class="rail-head">
-      <span class="rail-kicker">INDEX / 2026</span>
-      <strong>Research Portfolio</strong>
-      <span class="rail-live"><i></i> live build</span>
+      <span class="rail-kicker">PAGE / INDEX</span>
+      <strong>Contents</strong>
+      <span class="rail-live"><i></i> live position</span>
     </div>
     <nav class="rail-nav" aria-label="Page sections">
       <a href="#overview" data-rail-target="overview"><span>00</span><b>Overview</b></a>
@@ -50,13 +54,36 @@
       <div class="rail-progress-label"><span>READING POSITION</span><em id="rail-percent">00%</em></div>
       <div class="rail-track"><i id="rail-progress"></i></div>
     </div>
-    <div class="rail-meta">
-      <div><span>FOCUS</span><b>Control · Robotics</b></div>
-      <div><span>LIBRARY</span><b><span data-paper-total>1,092</span> papers</b></div>
-      <div><span>STATUS</span><b>Research / Build</b></div>
+  </aside>
+
+  <aside id="research-rail" class="side-panel research-rail" aria-label="Research information">
+    <div class="identity-card">
+      <div class="identity-avatar">C</div>
+      <div>
+        <span class="rail-kicker">RESEARCHER</span>
+        <strong>Charlie</strong>
+        <p>Automation · GDUT<br>Control · Robotics · Autonomous Systems</p>
+      </div>
     </div>
+
+    <div class="rail-stat-grid">
+      <div><strong>04</strong><span>tracks</span></div>
+      <div><strong data-paper-total>1,092</strong><span>papers</span></div>
+      <div><strong id="rail-activity-count">—</strong><span>updates</span></div>
+    </div>
+
+    <section class="rail-card">
+      <div class="rail-card-title"><span>RESEARCH LIBRARY</span><span>↗</span></div>
+      <p>Browse categorized papers, open local PDFs and keep notes beside the paper.</p>
+      <a class="rail-primary" href="papers.html">Open Paper Desk</a>
+    </section>
+
+    <section class="rail-card rail-recent-card">
+      <div class="rail-card-title"><span>RECENT ACTIVITY</span><span id="rail-recent-count">0</span></div>
+      <div id="rail-recent-list" class="rail-recent-list"></div>
+    </section>
+
     <div class="rail-actions">
-      <a class="rail-paper" href="papers.html">Paper desk ↗</a>
       <a href="https://github.com/charlie1552818" target="_blank" rel="noreferrer">GitHub ↗</a>
       <a href="#activity">Build log ↓</a>
     </div>
@@ -199,7 +226,7 @@
 
   <footer class="shell footer"><span>© 2026 Charlie</span><span>Automation · Control · Robotics · Autonomous Systems</span><a href="#top">Back to top ↑</a></footer>
   <script src="paper-summary.js"></script>
-  <script src="rail.js"></script>
   <script src="activity-data.js"></script>
+  <script src="rail.js"></script>
   <script src="script.js"></script>
 </body></html>
