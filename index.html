@@ -10,8 +10,11 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="activity.css">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
 </head>
 <body>
+  <div class="scroll-progress" aria-hidden="true"></div>
   <canvas id="field" aria-hidden="true"></canvas>
   <div class="noise" aria-hidden="true"></div>
   <div class="cursor-glow" aria-hidden="true"></div>
@@ -20,7 +23,7 @@
     <nav class="shell nav">
       <a class="brand" href="#top" aria-label="Home"><span class="brand-mark">C</span><span class="brand-word">CHARLIE</span></a>
       <div class="nav-links">
-        <a href="#research">Research</a><a href="#work">Work</a><a href="#systems">Systems</a>
+        <a href="#research">Research</a><a href="#work">Work</a><a href="#evidence">Evidence</a><a href="#systems">Systems</a>
         <a class="nav-cta" href="https://github.com/charlie1552818" target="_blank" rel="noreferrer">GitHub <span>↗</span></a>
       </div>
     </nav>
@@ -103,11 +106,11 @@
     <section id="work" class="section section-work"><div class="shell">
       <div class="section-head reveal"><div><span class="section-index">02 / SELECTED WORK</span><h2>Projects with<br><span>technical depth.</span></h2></div><p>Each project is treated as a system: problem formulation, model, method, experiment, failure modes and iteration — not just a repository link.</p></div>
       <div class="project-stack">
-        <a class="project-card reveal project-cyan" href="https://github.com/charlie1552818/cumcm2026-b-radio-interference-localization" target="_blank" rel="noreferrer">
+        <a class="project-card reveal project-cyan" href="work/cumcm.html">
           <div class="project-copy"><div class="project-meta"><span>01</span><span>MATHEMATICAL MODELING</span><span>2026</span></div><h3>Radio Interference<br>Localization & Clearance</h3><p>Set-membership localization, half-plane geometry, event-triggered switching and rolling-horizon search for fast multi-source localization.</p><div class="project-tags"><span>Geometry</span><span>Optimization</span><span>Active Search</span></div></div>
           <div class="project-graphic radar-graphic"><div class="radar-grid"></div><div class="radar-sweep"></div><span class="target t1"></span><span class="target t2"></span><span class="target t3"></span><svg viewBox="0 0 360 260"><path d="M36 215 C94 184 126 129 177 119 C223 110 246 75 325 54" class="route"/><path d="M36 215 L91 194 L121 158 L177 119 L241 89 L325 54" class="route-dots"/></svg></div><span class="project-arrow">↗</span>
         </a>
-        <a class="project-card reveal project-violet" data-delay="80" href="https://github.com/charlie1552818/safe-control-gym" target="_blank" rel="noreferrer">
+        <a class="project-card reveal project-violet" data-delay="80" href="work/safety-control.html">
           <div class="project-copy"><div class="project-meta"><span>02</span><span>SAFE CONTROL</span><span>RESEARCH</span></div><h3>Safety-Critical<br>Autonomous Control</h3><p>Control-barrier-function thinking, model-based control and learning environments for quadrotors and nonlinear dynamical systems.</p><div class="project-tags"><span>CBF</span><span>MPC</span><span>Quadrotor</span></div></div>
           <div class="project-graphic phase-graphic"><svg viewBox="0 0 360 260"><defs><linearGradient id="phaseG" x1="0" x2="1"><stop stop-color="#73ead4"/><stop offset="1" stop-color="#a786ff"/></linearGradient></defs><ellipse cx="180" cy="130" rx="124" ry="79" class="phase-ring"/><ellipse cx="180" cy="130" rx="90" ry="53" class="phase-ring two"/><path d="M45 195 C100 43 259 228 320 64" class="phase-path"/><circle cx="236" cy="107" r="9" class="phase-point"/><path d="M236 107 l36 -28" class="phase-vector"/></svg></div><span class="project-arrow">↗</span>
         </a>
@@ -118,8 +121,30 @@
       </div>
     </div></section>
 
+    <section id="evidence" class="section shell evidence-section">
+      <div class="section-head reveal">
+        <div><span class="section-index">03 / EVIDENCE</span><h2>Real artifacts,<br><span>not decorative mockups.</span></h2></div>
+        <p>Figures below come from my local competition and research work: trajectory tests, identification windows, barrier stress tests, hardware/robotics work and morphology studies.</p>
+      </div>
+      <div class="evidence-grid">
+        <article class="evidence-card evidence-wide reveal"><button class="evidence-image" data-lightbox="assets/projects/cumcm_trajectory.webp" aria-label="Open radio localization trajectory"><img src="assets/projects/cumcm_trajectory.webp" alt="Radio interference localization trajectory and timing figure" loading="lazy"><span class="zoom-cue">EXPAND ↗</span></button><div class="evidence-copy"><div><span class="evidence-kicker">MATHEMATICAL MODELING</span><h3>Localization trajectory & timing</h3><p>Official-style run visualization used to inspect path geometry, coverage and clearance time.</p></div><a href="work/cumcm.html">Case study →</a></div></article>
+        <article class="evidence-card reveal" data-delay="60"><button class="evidence-image" data-lightbox="assets/projects/sysid_validation.webp" aria-label="Open system identification validation"><img src="assets/projects/sysid_validation.webp" alt="Gray-box system identification validation figure" loading="lazy"><span class="zoom-cue">EXPAND ↗</span></button><div class="evidence-copy"><div><span class="evidence-kicker">UAV SYSTEM IDENTIFICATION</span><h3>Real-window validation</h3><p>Gray-box parameter fitting evaluated on real flight-log windows rather than prediction loss alone.</p></div><a href="work/sysid.html">Case study →</a></div></article>
+        <article class="evidence-card reveal" data-delay="100"><button class="evidence-image" data-lightbox="assets/projects/barrier_stress.webp" aria-label="Open barrier stress test"><img src="assets/projects/barrier_stress.webp" alt="Control barrier function stress test figure" loading="lazy"><span class="zoom-cue">EXPAND ↗</span></button><div class="evidence-copy"><div><span class="evidence-kicker">SAFETY-CRITICAL CONTROL</span><h3>Barrier stress test</h3><p>Constraint scaling and difficult numerical regimes are treated as validation targets, not afterthoughts.</p></div><a href="work/safety-control.html">Case study →</a></div></article>
+        <article class="evidence-card evidence-tall reveal" data-delay="140"><button class="evidence-image" data-lightbox="assets/projects/uav_platform.webp" aria-label="Open UAV platform image"><img src="assets/projects/uav_platform.webp" alt="UAV project platform artifact" loading="lazy"><span class="zoom-cue">EXPAND ↗</span></button><div class="evidence-copy"><div><span class="evidence-kicker">UAV ENGINEERING</span><h3>From model to platform</h3><p>PX4, ROS, LiDAR and onboard compute make the control stack a physical systems problem.</p></div><a href="work/sysid.html">Related work →</a></div></article>
+        <article class="evidence-card evidence-wide reveal" data-delay="180"><button class="evidence-image" data-lightbox="assets/projects/spirob_chain.webp" aria-label="Open SpiRob research chain"><img src="assets/projects/spirob_chain.webp" alt="SpiRob research chain" loading="lazy"><span class="zoom-cue">EXPAND ↗</span></button><div class="evidence-copy"><div><span class="evidence-kicker">SOFT ROBOTICS</span><h3>SpiRob research chain</h3><p>Morphology, tendon actuation, sensing and control are designed as one research chain.</p></div><a href="work/spirob.html">Case study →</a></div></article>
+        <article class="evidence-card reveal" data-delay="220"><button class="evidence-image" data-lightbox="assets/projects/control_active_set.webp" aria-label="Open active set transition graph"><img src="assets/projects/control_active_set.webp" alt="Active set transition graph" loading="lazy"><span class="zoom-cue">EXPAND ↗</span></button><div class="evidence-copy"><div><span class="evidence-kicker">OPTIMIZATION DYNAMICS</span><h3>Active-set transitions</h3><p>Switching structure reveals where optimization regimes change and where numerical fragility can enter.</p></div><a href="work/safety-control.html">Related study →</a></div></article>
+      </div>
+    </section>
+
+    <section id="activity" class="section activity-section"><div class="shell">
+      <div class="section-head reveal"><div><span class="section-index">04 / RECENT ACTIVITY</span><h2>What moved<br><span>recently.</span></h2></div><p>A compact build log of completed work with concrete outputs. This feed is updated automatically from verified recent activity rather than planned work.</p></div>
+      <!-- AUTO_ACTIVITY_RENDER_TARGET: rendered from activity-data.js; recurring automation updates data only -->
+      <div id="recent-activity-list" class="activity-grid" aria-live="polite"></div>
+      <noscript><p class="activity-noscript">Recent activity requires JavaScript to render.</p></noscript>
+    </div></section>
+
     <section id="systems" class="section shell">
-      <div class="section-head reveal"><div><span class="section-index">03 / SYSTEMS</span><h2>Tools arranged by<br><span>what they enable.</span></h2></div><p>My stack is organized around the engineering loop rather than a list of logos: model, simulate, estimate, control, deploy and document.</p></div>
+      <div class="section-head reveal"><div><span class="section-index">05 / SYSTEMS</span><h2>Tools arranged by<br><span>what they enable.</span></h2></div><p>My stack is organized around the engineering loop rather than a list of logos: model, simulate, estimate, control, deploy and document.</p></div>
       <div class="systems-board reveal">
         <div class="system-lane"><div class="lane-title"><span>01</span> MODEL</div><div class="lane-items"><span>MATLAB</span><span>CasADi</span><span>Python</span></div></div><div class="connector"><i></i><b>→</b></div>
         <div class="system-lane"><div class="lane-title"><span>02</span> SIMULATE</div><div class="lane-items"><span>Simulink</span><span>MuJoCo</span><span>Gazebo</span></div></div><div class="connector"><i></i><b>→</b></div>
@@ -128,9 +153,16 @@
       </div>
     </section>
 
-    <section class="closing shell reveal"><div class="closing-orb"><span></span><span></span><span></span></div><p class="section-index">04 / CONTINUE</p><h2>Build the model.<br>Stress the assumptions.<br><span>Make it work.</span></h2><div class="closing-links"><a href="https://github.com/charlie1552818" target="_blank" rel="noreferrer">GitHub ↗</a><a href="https://github.com/charlie1552818?tab=repositories" target="_blank" rel="noreferrer">Repositories ↗</a></div></section>
+    <section class="closing shell reveal"><div class="closing-orb"><span></span><span></span><span></span></div><p class="section-index">06 / CONTINUE</p><h2>Build the model.<br>Stress the assumptions.<br><span>Make it work.</span></h2><div class="closing-links"><a href="https://github.com/charlie1552818" target="_blank" rel="noreferrer">GitHub ↗</a><a href="https://github.com/charlie1552818?tab=repositories" target="_blank" rel="noreferrer">Repositories ↗</a></div></section>
   </main>
 
+  <dialog id="lightbox" class="lightbox">
+    <button class="lightbox-close" aria-label="Close image">×</button>
+    <img alt="Expanded project artifact">
+    <div class="lightbox-caption">Project artifact · click outside or press Esc to close</div>
+  </dialog>
+
   <footer class="shell footer"><span>© 2026 Charlie</span><span>Automation · Control · Robotics · Autonomous Systems</span><a href="#top">Back to top ↑</a></footer>
+  <script src="activity-data.js"></script>
   <script src="script.js"></script>
 </body></html>
