@@ -5,6 +5,15 @@
 */
 window.RECENT_ACTIVITY = [
   {
+    id: "2026-09-20-article-sidebar-layout",
+    date: "2026-09-20",
+    category: "PORTFOLIO",
+    title: "Research article layout with sticky right sidebar",
+    summary: "Reworked case-study pages into a long-form research reading layout with a paper-like article column, sticky author/status panel, active section table of contents, library statistics, and recent activity.",
+    href: "https://charlie1552818.github.io/work/cumcm.html",
+    status: "DEPLOYED"
+  },
+  {
     id: "2026-09-20-paper-reading-desk",
     date: "2026-09-20",
     category: "RESEARCH LIBRARY",
