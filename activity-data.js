@@ -5,6 +5,15 @@
 */
 window.RECENT_ACTIVITY = [
   {
+    id: "2026-09-20-paper-library-1101",
+    date: "2026-09-20",
+    category: "RESEARCH LIBRARY",
+    title: "Research library expanded to 1,101 indexed papers",
+    summary: "Refreshed the categorized research-paper index after new local additions, with the largest growth in adaptive/nonlinear/broad-learning material and a new system-identification item.",
+    href: "https://charlie1552818.github.io/papers.html",
+    status: "DEPLOYED"
+  },
+  {
     id: "2026-09-20-article-sidebar-layout",
     date: "2026-09-20",
     category: "PORTFOLIO",
@@ -39,14 +48,5 @@ window.RECENT_ACTIVITY = [
     summary: "Built a recurring workflow that re-reads recent work, searches for high-value resources, and archives each intelligence brief as a local LaTeX report.",
     status: "COMPLETED"
   },
-  {
-    id: "2026-09-19-portfolio-redesign",
-    date: "2026-09-19",
-    category: "PORTFOLIO",
-    title: "Research portfolio redesign",
-    summary: "Reworked the personal site into a research-oriented systems portfolio with interactive control visuals, project graphics, and a coherent technical visual language.",
-    href: "https://charlie1552818.github.io/",
-    status: "DEPLOYED"
-  }
 ];
 
