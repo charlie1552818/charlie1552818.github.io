@@ -1,0 +1,4 @@
+# Relative POSIX-style globs for generated project artifacts that are not literature.
+# Keep this list narrow: a PDF is excluded only when it is known to be an output/result.
+**/main_validated.pdf
+**/highdim_phase7_kkt_results.pdf

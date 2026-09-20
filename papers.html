@@ -4,6 +4,14 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="description" content="Charlie's research paper library and reading desk">
+  <link rel="canonical" href="https://charlie1552818.github.io/papers.html">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Paper Desk — Charlie Research Library">
+  <meta property="og:description" content="A categorized research-paper index with local PDF access and browser-local research notes.">
+  <meta property="og:url" content="https://charlie1552818.github.io/papers.html">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Paper Desk — Charlie Research Library">
+  <meta name="twitter:description" content="A categorized research-paper index with local PDF access and browser-local research notes.">
   <meta name="theme-color" content="#070b14">
   <title>Paper Desk — Charlie Research Library</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,6 +21,7 @@
   <link rel="stylesheet" href="papers.css">
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Skip to paper library</a>
   <header class="paper-header">
     <a class="paper-brand" href="index.html"><span>C</span><b>CHARLIE / PAPER DESK</b></a>
     <div class="paper-header-actions">
@@ -21,7 +30,7 @@
     </div>
   </header>
 
-  <main class="paper-shell">
+  <main id="main-content" class="paper-shell">
     <aside class="library-panel">
       <div class="library-intro">
         <span class="eyebrow">RESEARCH LIBRARY / LOCAL-FIRST</span>
@@ -36,7 +45,7 @@
 
       <label class="search-box">
         <span>⌕</span>
-        <input id="paper-search" type="search" placeholder="Search title, category, group…">
+        <input id="paper-search" type="search" placeholder="Search title, category, group…" aria-label="Search papers">
       </label>
 
       <div class="folder-connect-card">
@@ -51,7 +60,7 @@
 
       <div class="filter-block">
         <div class="filter-label">GROUP</div>
-        <select id="group-filter"><option value="">All research groups</option></select>
+        <select id="group-filter" aria-label="Filter by research group"><option value="">All research groups</option></select>
       </div>
 
       <div class="library-footer-note">
@@ -64,7 +73,7 @@
       <div class="browser-topbar">
         <div><span id="result-count">0</span> papers shown</div>
         <div class="browser-controls">
-          <select id="sort-mode">
+          <select id="sort-mode" aria-label="Sort papers">
             <option value="title">Title A–Z</option>
             <option value="modified">Recently modified</option>
             <option value="size">Largest files</option>
@@ -137,12 +146,15 @@
 
           <div class="notes-actions">
             <button id="export-note" class="desk-button" disabled>Export Markdown</button>
+            <button id="backup-notes" class="desk-button">Backup all notes</button>
+            <button id="restore-notes" class="desk-button">Restore notes</button>
             <button id="clear-note" class="desk-button danger" disabled>Clear note</button>
+            <input id="restore-notes-picker" type="file" accept="application/json,.json" hidden>
           </div>
 
           <div class="note-storage">
             <b>LOCAL STORAGE</b>
-            <p>Notes are keyed by a stable paper ID. Rebuilding the public index will not erase them as long as the indexed relative file remains the same.</p>
+            <p>Notes are keyed by a stable paper ID. Use Backup all notes before clearing browser data or moving to another browser; Restore notes imports the JSON backup without uploading it.</p>
           </div>
         </aside>
       </div>

@@ -1,8 +1,10 @@
 from __future__ import annotations
-import argparse, hashlib, json, re
+import argparse, fnmatch, hashlib, json, re
 from collections import Counter
 from datetime import datetime, timezone
 from pathlib import Path
+
+DEFAULT_EXCLUDE_FILE = Path(__file__).resolve().parents[1] / "paper-index-excludes.txt"
 
 CATEGORY_RULES = [
     ("Safety-Critical Control / CBF", ["control barrier", "barrier function", "cbf", "safety-critical", "safety critical", "safe control", "安全临界", "控制障碍", "安全控制", "nonsmooth safe"]),
@@ -28,12 +30,35 @@ def category_for(text: str) -> str:
             return category
     return "General Control / Other"
 
-def build(source: Path, output: Path, summary_output: Path | None = None) -> dict:
+def load_exclude_patterns(path: Path | None) -> list[str]:
+    if path is None or not path.is_file():
+        return []
+    patterns = []
+    for raw in path.read_text(encoding="utf-8").splitlines():
+        line = raw.strip()
+        if line and not line.startswith("#"):
+            patterns.append(line.replace("\\", "/"))
+    return patterns
+
+
+def is_excluded(rel: Path, patterns: list[str]) -> bool:
+    candidate = rel.as_posix().lower()
+    name = rel.name.lower()
+    return any(
+        fnmatch.fnmatch(candidate, pattern.lower()) or fnmatch.fnmatch(name, pattern.lower())
+        for pattern in patterns
+    )
+
+
+def build(source: Path, output: Path, summary_output: Path | None = None, exclude_patterns: list[str] | None = None) -> dict:
     items = []
+    excludes = exclude_patterns or []
     for p in sorted(source.rglob("*.pdf"), key=lambda x: str(x).lower()):
         if not p.is_file():
             continue
         rel = p.relative_to(source)
+        if is_excluded(rel, excludes):
+            continue
         parts = rel.parts
         group = parts[0] if len(parts) > 1 else "Root"
         collection = parts[1] if len(parts) > 2 else group
@@ -77,6 +102,10 @@ if __name__ == "__main__":
     ap.add_argument("--source", required=True, help="Local research root; absolute path is never written to output")
     ap.add_argument("--output", default="papers-data.js")
     ap.add_argument("--summary-output", default=None)
+    ap.add_argument("--exclude-file", default=str(DEFAULT_EXCLUDE_FILE), help="UTF-8 file of relative glob patterns to exclude")
+    ap.add_argument("--exclude-glob", action="append", default=[], help="Additional relative glob pattern to exclude; repeatable")
     args = ap.parse_args()
-    payload = build(Path(args.source), Path(args.output), Path(args.summary_output) if args.summary_output else None)
+    patterns = load_exclude_patterns(Path(args.exclude_file) if args.exclude_file else None)
+    patterns.extend(args.exclude_glob)
+    payload = build(Path(args.source), Path(args.output), Path(args.summary_output) if args.summary_output else None, patterns)
     print(json.dumps({"total": payload["total"], "categories": payload["categories"]}, ensure_ascii=True))

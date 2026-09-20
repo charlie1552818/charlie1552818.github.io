@@ -9,6 +9,8 @@ Personal research portfolio for control, robotics, autonomous systems, and a loc
 - `papers.html` — research-paper index and reading desk
 - `activity-data.js` — machine-updated recent activity
 - `papers-data.js` / `paper-summary.js` — machine-generated paper metadata
+- `paper-index-excludes.txt` — narrow denylist for generated PDF artifacts that are not literature
+- `robots.txt` / `sitemap.xml` / `404.html` — search/discovery and fallback surfaces
 
 The site is static and is published with GitHub Pages from `main`.
 
@@ -39,7 +41,8 @@ The site is static and is published with GitHub Pages from `main`.
 - accidental public absolute Windows/file URLs;
 - accidental tracked PDF binaries;
 - Recent Activity IDs/count;
-- paper-library and summary count consistency.
+- paper-library and summary count consistency;
+- SEO metadata, 404 behavior, sitemap/robots coverage, and excluded-artifact leakage.
 
 The validator uses only the Python standard library.
 
@@ -52,6 +55,8 @@ python tools/build_paper_index.py --source <research-root> --output papers-data.
 ```
 
 The local source path is runtime-only and must never be written into public output.
+
+Known generated reports/results are filtered through `paper-index-excludes.txt`; keep exclusions narrow and evidence-backed so real literature is not hidden. Browser-local research notes can be backed up/restored as JSON from Paper Desk.
 
 ## GitHub connectivity note
 

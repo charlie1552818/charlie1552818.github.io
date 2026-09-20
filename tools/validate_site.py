@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import fnmatch
 import json
 import re
 import subprocess
@@ -17,8 +18,12 @@ REQUIRED = {
     "paper-summary.js",
     "AUTOMATION_ACTIVITY_CONTRACT.md",
     "PAPER_LIBRARY_CONTRACT.md",
+    "paper-index-excludes.txt",
+    "404.html",
+    "robots.txt",
+    "sitemap.xml",
 }
-PUBLIC_TEXT_SUFFIXES = {".html", ".css", ".js"}
+PUBLIC_TEXT_SUFFIXES = {".html", ".css", ".js", ".txt", ".xml"}
 SKIP_SCHEMES = {"http", "https", "mailto", "tel", "data", "javascript"}
 
 
@@ -28,9 +33,26 @@ class DocumentParser(HTMLParser):
         self.refs: list[tuple[str, str, str | None]] = []
         self.ids: set[str] = set()
         self.blank_links: list[tuple[str, str]] = []
+        self.html_lang = ""
+        self.meta_names: dict[str, str] = {}
+        self.meta_properties: dict[str, str] = {}
+        self.canonical_links: list[str] = []
 
     def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
         data = dict(attrs)
+        if tag == "html":
+            self.html_lang = (data.get("lang") or "").strip()
+        if tag == "meta":
+            name = (data.get("name") or "").strip().lower()
+            prop = (data.get("property") or "").strip().lower()
+            if name:
+                self.meta_names[name] = data.get("content") or ""
+            if prop:
+                self.meta_properties[prop] = data.get("content") or ""
+        if tag == "link":
+            rel_tokens = {token.lower() for token in (data.get("rel") or "").split()}
+            if "canonical" in rel_tokens and data.get("href"):
+                self.canonical_links.append(data["href"])
         element_id = data.get("id")
         if element_id:
             self.ids.add(element_id)
@@ -128,6 +150,24 @@ def main() -> int:
                     f"{document.relative_to(ROOT)}: target=_blank link lacks noopener/noreferrer: {href}"
                 )
 
+        rel_document = document.relative_to(ROOT)
+        if not parser.html_lang:
+            errors.append(f"{rel_document}: missing html lang attribute")
+        if document.name == "404.html":
+            if "noindex" not in parser.meta_names.get("robots", "").lower():
+                errors.append("404.html: expected robots noindex metadata")
+        else:
+            if not parser.meta_names.get("description", "").strip():
+                errors.append(f"{rel_document}: missing meta description")
+            if len(parser.canonical_links) != 1:
+                errors.append(f"{rel_document}: expected exactly one canonical link")
+            for prop in ("og:type", "og:title", "og:description", "og:url"):
+                if not parser.meta_properties.get(prop, "").strip():
+                    errors.append(f"{rel_document}: missing {prop} metadata")
+            for name in ("twitter:card", "twitter:title", "twitter:description"):
+                if not parser.meta_names.get(name, "").strip():
+                    errors.append(f"{rel_document}: missing {name} metadata")
+
     for document, parser in parsed.items():
         for _tag, _attr, raw in parser.refs:
             try:
@@ -188,8 +228,34 @@ def main() -> int:
                 errors.append(f"papers-data.js: total={total!r} but items={len(items)}")
         if summary_total != total:
             errors.append(f"paper-summary.js: total={summary_total!r} does not match library total={total!r}")
+        exclude_path = ROOT / "paper-index-excludes.txt"
+        patterns = [
+            line.strip().replace("\\", "/")
+            for line in exclude_path.read_text(encoding="utf-8").splitlines()
+            if line.strip() and not line.lstrip().startswith("#")
+        ]
+        if isinstance(items, list):
+            for item in items:
+                filename = str(item.get("fileName") or "").lower()
+                if any(fnmatch.fnmatch(filename, Path(pattern).name.lower()) for pattern in patterns):
+                    errors.append(f"papers-data.js: excluded artifact still indexed: {filename}")
     except (OSError, UnicodeError, ValueError, json.JSONDecodeError) as exc:
         errors.append(f"paper metadata validation failed: {exc}")
+
+    robots_text = (ROOT / "robots.txt").read_text(encoding="utf-8") if (ROOT / "robots.txt").is_file() else ""
+    if "https://charlie1552818.github.io/sitemap.xml" not in robots_text:
+        errors.append("robots.txt: sitemap URL missing")
+    sitemap_text = (ROOT / "sitemap.xml").read_text(encoding="utf-8") if (ROOT / "sitemap.xml").is_file() else ""
+    for url in (
+        "https://charlie1552818.github.io/",
+        "https://charlie1552818.github.io/papers.html",
+        "https://charlie1552818.github.io/work/cumcm.html",
+        "https://charlie1552818.github.io/work/safety-control.html",
+        "https://charlie1552818.github.io/work/spirob.html",
+        "https://charlie1552818.github.io/work/sysid.html",
+    ):
+        if url not in sitemap_text:
+            errors.append(f"sitemap.xml: missing {url}")
 
     if errors:
         print(f"Site validation FAILED with {len(errors)} issue(s):", file=sys.stderr)

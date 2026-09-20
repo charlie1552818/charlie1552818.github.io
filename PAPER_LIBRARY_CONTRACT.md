@@ -15,6 +15,7 @@ The source collection is the user's local research workspace. The absolute sourc
 - `papers-data.js` — machine-generated paper metadata; this is the routine automation update target
 - `paper-summary.js` — small machine-generated homepage summary (total and category counts)
 - `tools/build_paper_index.py` — deterministic index builder
+- `paper-index-excludes.txt` — narrow relative-glob denylist for generated reports/results that are not literature
 
 ## Routine automation priority
 
@@ -22,14 +23,15 @@ Paper-library maintenance is a first-class update target alongside Recent Activi
 
 At each scheduled intelligence/update run:
 
-1. Scan the configured local research root for `*.pdf`.
-2. Rebuild `papers-data.js` and `paper-summary.js` with `tools/build_paper_index.py --source <runtime-source> --output papers-data.js --summary-output paper-summary.js`.
-3. Never copy third-party publisher PDFs into the public repository unless the user explicitly marks the file as their own or confirms redistribution rights.
-4. Preserve stable paper IDs. IDs derive from the relative path, so browser-local notes survive ordinary index rebuilds.
-5. If the index materially changes, add one concise verified item to `activity-data.js` describing the updated paper count/categories.
-6. Do not publish absolute Windows paths, credentials, private notes or browser-local note content.
-7. Routine paper-index commits should include `papers-data.js`, `paper-summary.js`, and, when warranted, `activity-data.js` only.
-8. Before push, inspect the staged diff and ensure no PDF binaries or unrelated files are included.
+1. Scan the configured local research root for `*.pdf`, but treat the Paper Desk as a literature index rather than a generic PDF inventory.
+2. Apply `paper-index-excludes.txt` before indexing. Add only narrow, evidence-backed relative globs for generated reports, validation outputs or experiment-result PDFs; do not use broad patterns that could hide real literature.
+3. Rebuild `papers-data.js` and `paper-summary.js` with `tools/build_paper_index.py --source <runtime-source> --output papers-data.js --summary-output paper-summary.js`. The exclusion file is loaded automatically; `--exclude-glob` is available for one-off runtime exclusions.
+4. Never copy third-party publisher PDFs into the public repository unless the user explicitly marks the file as their own or confirms redistribution rights.
+5. Preserve stable paper IDs. IDs derive from the relative path, so browser-local notes survive ordinary index rebuilds.
+6. If the index materially changes, add one concise verified item to `activity-data.js` describing the updated paper count/categories.
+7. Do not publish absolute Windows paths, credentials, private notes or browser-local note content.
+8. Routine paper-index commits should include `papers-data.js`, `paper-summary.js`, and, when warranted, `activity-data.js` only.
+9. Before push, inspect the staged diff and ensure no PDF binaries, generated research outputs or unrelated files are included.
 
 ## Notes model
 
@@ -37,4 +39,4 @@ Paper notes are stored only in the user's browser `localStorage` under stable pa
 
 The Reading Desk can load a local PDF through the browser file picker and display it next to the note editor. On browsers with the File System Access API, the user can also connect the local research root once and let the desk match indexed papers by stable relative-path hash. The directory handle may be retained in browser IndexedDB; file contents and absolute paths are never published or uploaded.
 
-The user can export any note as Markdown for later archival or deliberate Git publication.
+The user can export any single note as Markdown and can back up or restore the complete browser-local note set as JSON. The backup contains note metadata only; it never contains PDF bytes, directory handles or absolute local paths.

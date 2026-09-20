@@ -4,6 +4,14 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="description" content="Charlie — Control, Robotics and Autonomous Systems">
+  <link rel="canonical" href="https://charlie1552818.github.io/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Charlie — Control · Robotics · Autonomous Systems">
+  <meta property="og:description" content="Control, robotics, autonomous systems, research case studies and a local-first paper desk.">
+  <meta property="og:url" content="https://charlie1552818.github.io/">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Charlie — Control · Robotics · Autonomous Systems">
+  <meta name="twitter:description" content="Control, robotics, autonomous systems, research case studies and a local-first paper desk.">
   <meta name="theme-color" content="#070b14">
   <title>Charlie — Control · Robotics · Autonomous Systems</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,6 +23,7 @@
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
 </head>
 <body>
+  <a class="skip-link" href="#overview">Skip to main content</a>
   <div class="scroll-progress" aria-hidden="true"></div>
   <canvas id="field" aria-hidden="true"></canvas>
   <div class="noise" aria-hidden="true"></div>
@@ -68,7 +77,7 @@
 
     <div class="rail-stat-grid">
       <div><strong>04</strong><span>tracks</span></div>
-      <div><strong data-paper-total>1,092</strong><span>papers</span></div>
+      <div><strong data-paper-total>1,101</strong><span>papers</span></div>
       <div><strong id="rail-activity-count">—</strong><span>updates</span></div>
     </div>
 
@@ -98,12 +107,12 @@
         <p class="lead">Automation undergraduate at Guangdong University of Technology. I work across safety-critical control, UAV autonomy, marine robotics and learning-enabled nonlinear systems.</p>
         <div class="hero-actions">
           <a class="button button-primary" href="#work"><span>Explore selected work</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></a>
-          <a class="button button-ghost" href="papers.html">Papers / Notes · <span data-paper-total>1,092</span></a>
+          <a class="button button-ghost" href="papers.html">Papers / Notes · <span data-paper-total>1,101</span></a>
           <a class="button button-ghost" href="https://github.com/charlie1552818" target="_blank" rel="noreferrer">GitHub profile</a>
         </div>
         <div class="hero-stats">
           <div><strong>04</strong><span>Research tracks</span></div>
-          <div><strong>13+</strong><span>Technical repositories</span></div>
+          <div><strong>04</strong><span>Case studies</span></div>
           <div><strong>∞</strong><span>Iterations ahead</span></div>
         </div>
       </div>
@@ -176,9 +185,9 @@
           <div class="project-copy"><div class="project-meta"><span>02</span><span>SAFE CONTROL</span><span>RESEARCH</span></div><h3>Safety-Critical<br>Autonomous Control</h3><p>Control-barrier-function thinking, model-based control and learning environments for quadrotors and nonlinear dynamical systems.</p><div class="project-tags"><span>CBF</span><span>MPC</span><span>Quadrotor</span></div></div>
           <div class="project-graphic phase-graphic"><svg viewBox="0 0 360 260"><defs><linearGradient id="phaseG" x1="0" x2="1"><stop stop-color="#73ead4"/><stop offset="1" stop-color="#a786ff"/></linearGradient></defs><ellipse cx="180" cy="130" rx="124" ry="79" class="phase-ring"/><ellipse cx="180" cy="130" rx="90" ry="53" class="phase-ring two"/><path d="M45 195 C100 43 259 228 320 64" class="phase-path"/><circle cx="236" cy="107" r="9" class="phase-point"/><path d="M236 107 l36 -28" class="phase-vector"/></svg></div><span class="project-arrow">↗</span>
         </a>
-        <a class="project-card reveal project-blue" data-delay="160" href="https://github.com/charlie1552818/Broad-Learning-System" target="_blank" rel="noreferrer">
-          <div class="project-copy"><div class="project-meta"><span>03</span><span>LEARNING SYSTEMS</span><span>CONTROL</span></div><h3>Broad Learning<br>for Nonlinear Systems</h3><p>Structured learning modules for uncertain nonlinear dynamics, with emphasis on efficient incremental representations and control integration.</p><div class="project-tags"><span>BLS</span><span>Nonlinear</span><span>Output Feedback</span></div></div>
-          <div class="project-graphic bls-graphic"><div class="layer l1"><i></i><i></i><i></i><i></i></div><div class="links one"></div><div class="layer l2"><i></i><i></i><i></i><i></i><i></i></div><div class="links two"></div><div class="layer l3"><i></i><i></i><i></i></div></div><span class="project-arrow">↗</span>
+        <a class="project-card reveal project-blue" data-delay="160" href="work/sysid.html">
+          <div class="project-copy"><div class="project-meta"><span>03</span><span>UAV SYSTEM IDENTIFICATION</span><span>RESEARCH</span></div><h3>Identifiability-Preserving<br>Gray-Box Modeling</h3><p>Fit multirotor dynamics from real PX4 flight logs while keeping inertia, motor lag and thrust/torque parameters physically interpretable.</p><div class="project-tags"><span>PX4</span><span>Gray-Box</span><span>Identifiability</span></div></div>
+          <div class="project-graphic sysid-card-graphic"><img src="assets/projects/sysid_validation.webp" alt="" loading="lazy" decoding="async"></div><span class="project-arrow">↗</span>
         </a>
       </div>
     </div></section>
