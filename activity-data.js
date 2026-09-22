@@ -6,12 +6,12 @@
 window.RECENT_ACTIVITY = [
   {
     id: "2026-09-20-paper-library-1101",
-    date: "2026-09-20",
+    date: "2026-09-22",
     category: "RESEARCH LIBRARY",
-    title: "Research library expanded to 1,101 indexed papers",
-    summary: "Refreshed the categorized research-paper index after new local additions, with the largest growth in adaptive/nonlinear/broad-learning material and a new system-identification item.",
+    title: "Research library refreshed to 1,144 indexed papers",
+    summary: "Rebuilt the public research-paper metadata after a material local-library update, adding 43 indexed items while preserving stable paper IDs and keeping PDF contents private.",
     href: "https://charlie1552818.github.io/papers.html",
-    status: "DEPLOYED"
+    status: "COMPLETED"
   },
   {
     id: "2026-09-20-article-sidebar-layout",
